@@ -1,3 +1,4 @@
+#include <sstream>
 #include <iomanip>
 
 using namespace std;
@@ -25,6 +26,8 @@ namespace Simulator {
     int getAccountNumber() const;
     double getValue() const;
     
+    static string transferToString(const Transfer &transfer);
+    
     friend ostream& operator<<(ostream &out, Account &account);
   };
   
@@ -51,6 +54,8 @@ namespace Simulator {
     Transfer currentTransfer = {accountnbr, receiver.getAccountNumber(), instructed, false};
     if (value - instructed < limit)
       currentTransfer.refused = true;
+    else
+      value -= instructed;
     return currentTransfer;
   }
   
@@ -66,5 +71,15 @@ namespace Simulator {
         << setw(12) << right << fixed << setprecision(2) << account.value
         << setw(9) << right << account.limit;
     return out;
+  }
+  
+  string Account::transferToString(const Transfer &transfer) {
+    stringstream out;
+    out << "#" << transfer.origin
+      << " --("
+      << setprecision(2) << fixed << transfer.value
+      << " EUR)--> "
+      << "#" << transfer.target;
+    return out.str();
   }
 }
