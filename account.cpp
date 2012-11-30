@@ -23,6 +23,7 @@ namespace Simulator {
     Account& send(double transferValue);
     Transfer receive(Account &origin);
     int getAccountNumber() const;
+    double getValue() const;
     
     friend ostream& operator<<(ostream &out, Account &account);
   };
@@ -55,6 +56,9 @@ namespace Simulator {
   
   int Account::getAccountNumber() const {
     return accountnbr;
+  }
+  double Account::getValue() const {
+    return value;
   }
   
   ostream& operator<<(ostream &out, Account &account) {

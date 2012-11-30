@@ -1,7 +1,2 @@
 clang++  -c main.cpp
-In file included from main.cpp:1:
-./simulator.cpp:58:18: error: indirection requires pointer operand ('Simulator::Account' invalid)
-        origin = **(accounts.begin() + ((int) random(0, accounts.size() - 1)));
-                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-1 error generated.
-make[1]: *** [main.o] Error 1
+clang++ -Wall -o account main.o 
