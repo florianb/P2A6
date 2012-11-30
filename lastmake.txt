@@ -1,36 +1,28 @@
-clang++  -c main.cpp
-clang++ -Wall -o account main.o 
-simulator <AccountNumber>
---------------------------------------------------
-AccountNumber       Anzahl der Konten, die für die Simulation
-                    eingerichtet werden sollen. (1-10.000)
-
-Der angegebene Parameter '-m' wurde nicht verarbeitet,
-stattdessen findet nun der Standardwert 50 verwendung.
-
+g++  -c main.cpp
+g++ -Wall -o account main.o 
  simulator - Kontensimulation
 
-50 Konten erstellt.
+100000 Konten erstellt.
 
  Tag 0
 ----------------------------------------------------------------------
- # Gesamtbestand:			                    2323616.13 EUR
- + Höchster Kontostand (#111121): 	                      97736.01 EUR
- - Niedrigster Kontostand (#111124): 	                       3703.78 EUR
+ # Gesamtbestand:			                 4993320148.67 EUR
+ + Höchster Kontostand (#181170): 	                      99999.91 EUR
+ - Niedrigster Kontostand (#130468): 	                          0.17 EUR
 
  ### Überweisungen:
-   - Anzahl:                                             361 Stück
-   - Gesamtvolumen:                              12487874.92 EUR
-   - Durchschnittsvolumen:                          34592.45 EUR
+   - Anzahl:                                          766244 Stück
+   - Gesamtvolumen:                           26851704835.52 EUR
+   - Durchschnittsvolumen:                          35043.28 EUR
 
-   + Größte Transaktion:              #111126 --(99445.30 EUR)--> #111143
-   - Geringste Transaktion:               #111132 --(132.86 EUR)--> #111127
+   + Größte Transaktion:              #195513 --(99999.89 EUR)--> #183752
+   - Geringste Transaktion:                 #176893 --(0.01 EUR)--> #120666
 
  Tag 1
 ----------------------------------------------------------------------
- # Gesamtbestand:			                    2323616.13 EUR
- + Höchster Kontostand (#111128): 	                     384507.37 EUR
- - Niedrigster Kontostand (#111131): 	                      -3882.66 EUR
+ # Gesamtbestand:			                 4993320148.67 EUR
+ + Höchster Kontostand (#171618): 	                     783706.45 EUR
+ - Niedrigster Kontostand (#178522): 	                      -4965.47 EUR
 
 
  Einen weiteren Tag berechnen (Mit 'j' fortfahren und mit 'n' beenden)?

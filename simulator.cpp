@@ -1,3 +1,9 @@
+/**
+@file simulator.cpp
+
+Enthält alle Klassen und Funktionen zur Durchführung und Ausgabe der Kontensimulation.
+**/
+
 #include <iostream>
 #include <iomanip>
 #include <vector>
@@ -8,6 +14,9 @@ using namespace std;
 
 namespace Simulator {
 
+  /**
+  Die Klasse Simulator enthält alle Funktionen zur Durchführung und Darstellung der Kontensimulation
+  **/
   class Simulator {
   private:
     vector<Account> accounts;
@@ -35,6 +44,11 @@ namespace Simulator {
     return lo + (double) rand() / ((double) RAND_MAX / (hi - lo));
   }
   
+  /**
+  Konstruktor - Initialisiert den Simulator mit einer angegebenen Anzahl Konten
+  
+  @param initialN Anzahl der Konten, die die Simulation beinhalten soll
+  **/
   Simulator::Simulator(int initialN) {
     cout << " simulator - Kontensimulation" << endl << endl;
     
@@ -49,6 +63,9 @@ namespace Simulator {
     cout << accounts.size() << " Konten erstellt." << endl << endl;
   }
   
+  /**
+    Funktion zur Initialisierung der Statistikvariablen eines "Simulationstages"
+  **/
   void Simulator::initDay() {
     biggestTransfer.value = INT_MIN;
     biggestTransfer.refused = false;
@@ -60,6 +77,9 @@ namespace Simulator {
     srand(time(NULL));
   }
   
+  /**
+    Funktion zur Berechung eines einzelnen Simulationstages
+  **/
   void Simulator::calculateDay() {
     Transfer lastTransfer;
     Account *origin = 0;
@@ -95,6 +115,9 @@ namespace Simulator {
     }
   }
   
+  /**
+  Funktion zur formatierten Ausgabe eines Tagesstatus
+  **/
   void Simulator::printDaySummary() {
     Account *highestAccount = NULL;
     Account *lowestAccount = NULL;
@@ -121,6 +144,9 @@ namespace Simulator {
       << setw(30) << right << lowestAccount->getValue() << " EUR" << endl << endl;   
   }
   
+  /**
+    Funktion zur formatierten Ausgabe der Transaktionsstatistiken
+  **/
   void Simulator::printTransactionSummary() {
     cout << " ### Überweisungen:" << endl
       << setw(30) << left << "   - Anzahl:"
@@ -137,6 +163,12 @@ namespace Simulator {
       << endl << endl;
   }
   
+  /**
+  Hauptroutine zur Durchführung der Simulation
+  
+  Lässt die Simulation in einer Schleife ablaufen, in der der Nutzer nach Ablauf eines
+  Tages gefragt wird, ob er einen weiteren Tag simulieren möchte.
+  **/
   void Simulator::run() {
     char userInput = '\0';
     do {
@@ -153,6 +185,15 @@ namespace Simulator {
     cout << endl << " Adieu.. " << endl << flush;
   }
   
+  /**
+  Eingabefunktion, nimmt eine Benutzereingabe entgegen und speichert sie in der übergebenen Variable
+
+  Die Funktion nimmt eine Referenz auf den Container für die Benutzereingaben entgegen
+  und speichert die Eingabe darin. Ist die Typprüfung oder das Parsen auf den Typ nicht erfolgreich,
+  so wird der Nutzer zu einer erneuten Eingabe des Wertes aufgefordert.
+
+  @param input Conatiner der die Eingaben aufnehmen soll
+  **/
   template<class T> void Simulator::input(T &input) {
     bool cin_good = false;
       
@@ -169,6 +210,16 @@ namespace Simulator {
     } while (!cin_good);
   }
 
+  /**
+  Eingabefunktion, nimmt eine Benutzereingabe entgegen und speichert sie in der übergebenen Variable
+
+  Die Funktion nimmt eine Referenz auf den Container für die Benutzereingaben entgegen
+  und speichert die Eingabe darin. Ist die Typprüfung oder das Parsen auf den Typ nicht erfolgreich,
+  so wird der Nutzer zu einer erneuten Eingabe des Wertes aufgefordert.
+
+  @param input Conatiner der die Eingaben aufnehmen soll
+  @param size Maximale Anzahl an Zeichen, die entgegengenommen werden sollen
+  **/
   template<class T> void Simulator::input(T &input, int size) {
     bool cin_good = false;
       

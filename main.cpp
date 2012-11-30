@@ -1,10 +1,27 @@
+/**
+
+@file main.cpp
+
+Datei zum Start des Programms, enthält die Hauptfunktion und die Hilfeausgabe, falls
+eine falsche Parameterzahl eingegeben wurde.
+
+**/
+
 #include <cstdlib>
 #include <iomanip>
 
 #include "simulator.cpp"
-
+  
 using namespace std;
 
+/**
+Hauptfunktion überprüft, ob ein Kommandozeilenparameter übergeben wurde
+
+Wurde ein Kommandozeilenparameter (n) übergeben, versucht die Routine den Wert
+als Zahl einzulesen, schlägt dies fehl wird ein Standardert (50)
+angenommen.
+Startet außerdem die Hauptroutine zur Simulationsausführung.
+**/
 int main(int argumentCounter, char* argumentValues[]) {
   int accountNumber = 50;
   

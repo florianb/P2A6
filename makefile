@@ -4,7 +4,7 @@ CCFLAGS = -Wall
 OBJ = main.o
 VALFLAGS = --leak-check=full
 PROG = account
-ARGS = -m
+ARGS = 100000
 #ARGS = 
 LOG = | tee -a lastmake.txt
 MAKELOG = 2>&1 | tee lastmake.txt
